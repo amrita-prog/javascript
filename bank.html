@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .box {
+            background: #ffffff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        Enter Your Account No. : <input type="text" id="ac">
+        <br><br>
+        Enter Your Balance : <input type="text" id="balance">
+
+        <br><br>
+        <button onclick="deposit()">Deposit : </button>
+        <button onclick="withdraw()">Withdraw : </button>
+
+        <h2 id="depositval"></h2>
+        <h2 id="withdrawval"></h2>
+        <h2 id="newbal"></h2>
+    </div>
+
+    <script>
+        var deposit = () => {
+            document.getElementById('depositval').innerHTML = 
+            `Deposit Amt <input type="text" id="depositamt">
+            <br>
+            <button onclick="proceed()">Proceed</button>`
+        }
+
+        function proceed() {
+            const depositamt = Number(document.getElementById('depositamt').value);
+            if(isNaN(depositamt) || depositamt <=0)
+        {
+            alert("please enter a valid deposit amount");
+            return;
+        }
+
+        let Balance = Number(document.getElementById('balance').value);
+        Balance += depositamt;
+        document.getElementById('balance').value = Balance;
+        document.getElementById('newbal').innerHTML = `New balance : ${Balance}`;
+        }
+
+
+        var withdraw = () => {
+            document.getElementById('withdrawval').innerHTML = 
+            `Withdraw Amt <input type="text" id="withdrawamt">
+            <br>
+            <button onclick="withdraw_proceed()">Proceed</button>`
+        }
+
+        function withdraw_proceed() {
+            const withdrawamt = Number(document.getElementById('withdrawamt').value);
+            if(isNaN(withdrawamt) || withdrawamt <=0)
+        {
+            alert("please enter a valid withdraw amount");
+            return;
+        }
+
+        let Balance = Number(document.getElementById('balance').value);
+            if (withdrawamt > Balance) {
+                alert("Insufficient balance!");
+                return;
+            }
+
+        Balance -= withdrawamt;
+        document.getElementById('balance').value = Balance;
+        document.getElementById('newbal').innerHTML = `New balance : ${Balance}`;
+        }
+
+    </script>
+</body>
+</html>
