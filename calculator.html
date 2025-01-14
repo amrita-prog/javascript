@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+    .container{
+        height: 150px;
+        width: 400px;
+        border: solid 2px black;
+        border-radius: 10px;
+        padding: 30px;
+        background-color: rgb(204, 183, 223);
+        margin-left: 550px;
+        margin-top: 200px;
+    }
+    button{
+        height: 30px;
+        background-color:blueviolet;
+        color: white;
+        border-radius: 7px;
+    }
+    input{
+        height: 20px;
+        border-radius: 5px;
+        border: none;
+    }
+</style>
+<body>
+    <div class="container">
+    <h3>Enter first number : <input type="text" id="num1"></h3>
+    <h3>Enter second number : <input type="text" id="num2"></h3>
+
+    
+    <div>
+        <button onclick="add()"><b>Addition</b></button>
+        <button onclick="sub()"><b>Substraction</b></button>
+        <button onclick="mul()"><b>Multiply</b></button>
+        <button onclick="div()"><b>division</b></button>
+        <button onclick="mod()"><b>Modulus</b></button>
+    </div>
+
+    <h3 id="result"></h3>
+</div>
+    <script>
+        var add = () =>{
+            var num1 = Number(document.getElementById('num1').value);
+            var num2 = Number(document.getElementById('num2').value);
+            var sum = num1 + num2;
+            document.getElementById('result').innerHTML = `Addition : ${sum}`
+        }
+
+        var sub = () =>{
+            var num1 = Number(document.getElementById('num1').value);
+            var num2 = Number(document.getElementById('num2').value);
+            var subtract = num1 - num2;
+            document.getElementById('result').innerHTML = `Substraction : ${subtract}`
+        }
+
+        var mul = () =>{
+            var num1 = Number(document.getElementById('num1').value);
+            var num2 = Number(document.getElementById('num2').value);
+            var multiply = num1 * num2;
+            document.getElementById('result').innerHTML = `Multiply : ${multiply}`
+        }
+
+        var div = () =>{
+            var num1 = Number(document.getElementById('num1').value);
+            var num2 = Number(document.getElementById('num2').value);
+            var division = num1 / num2;
+            document.getElementById('result').innerHTML = `Division : ${division}`
+        }
+
+        var mod = () =>{
+            var num1 = Number(document.getElementById('num1').value);
+            var num2 = Number(document.getElementById('num2').value);
+            var modulus = num1 % num2;
+            document.getElementById('result').innerHTML = `modulus : ${modulus}`
+        }
+    </script>
+</body>
+</html>
